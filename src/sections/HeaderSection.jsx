@@ -1,10 +1,18 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react"
+import { Link } from "react-router-dom"
+import { RxHamburgerMenu } from "react-icons/rx"
+import { BiLogIn } from "react-icons/bi"
+import { SidebarContext } from "../contexts/SidebarContext"
 
 function HeaderSection()
 {
+
+  const { isOpen, setIsOpen } = useContext(SidebarContext);
+
+
     const urls = [
-      { url: "/", name: "Home" },
-      { url: "/contact", name: "Contact" },
+      { url: "/", name: "Anasayfa" },
+      { url: "/contact", name: "İletişim" },
     ];
 
     return(
@@ -25,10 +33,22 @@ function HeaderSection()
               ))}
             </ul>
             <div className="flex gap-8">
-                <button className="cursor-pointer">Login</button>
+                <Link
+                className="pt-px"
+                to="/login"
+                >
+                  <BiLogIn 
+                    size={24}
+                    />
+                </Link>
+                <button onClick={() => setIsOpen(!isOpen)} className="cursor-pointer">
+                  <RxHamburgerMenu
+                    size={28}
+                  />
+                </button>
             </div>
         </header>
-    );
+    )
 }
 
 export default HeaderSection;
