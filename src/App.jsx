@@ -1,14 +1,16 @@
 import AppRoutes from "./routes/AppRoutes"
 import SidebarProvider from "./providers/SidebarProvider"
+import AuthProvider from "./providers/AuthProvider"
 import "animate.css"
 
-function App()
-{
+function App() {
   return (
     <>
-    <SidebarProvider>
-    <AppRoutes />
-    </SidebarProvider>
+      <AuthProvider>
+        <SidebarProvider>
+          <AppRoutes />
+        </SidebarProvider>
+      </AuthProvider>
     </>
   );
 }

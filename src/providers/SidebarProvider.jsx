@@ -1,17 +1,14 @@
-import { useState } from 'react'
-import { SidebarContext } from '../contexts/SidebarContext'
+import { useState } from "react"
+import { SidebarContext } from "../contexts/SidebarContext"
 
-function SidebarProvider({ children })
-{
+function SidebarProvider({ children }) {
+  const [isOpen, setIsOpen] = useState(false)
 
-    const [isOpen, setIsOpen] = useState(false)
-
-    return (
-      <SidebarContext.Provider value={{ isOpen, setIsOpen }}>
-        {children}
-      </SidebarContext.Provider>
-    )
-
+  return (
+    <SidebarContext.Provider value={{ isOpen, setIsOpen }}>
+      {children}
+    </SidebarContext.Provider>
+  );
 }
 
-export default SidebarProvider
+export default SidebarProvider;
